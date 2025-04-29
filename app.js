@@ -19,7 +19,7 @@ connectDB();
 app.use(express.json());
 app.use(
     cors({
-        origin: '*', // Replace with your frontend URL
+        origin: 'https://task-manager-frontend-ten-nu.vercel.app/', // Replace with your frontend URL
         credentials: true,
     })
 )
