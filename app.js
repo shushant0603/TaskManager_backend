@@ -17,9 +17,17 @@ dotenv.config();
 
 connectDB();
 app.use(express.json());
+
+// Dynamically set the origin based on the environment
+const allowedOrigin =
+  process.env.NODE_ENV === 'production'
+    ? 'https://taskmanager-frontend-cb8p.onrender.com' // Production origin
+    : 'http://localhost:5173';
 app.use(
     cors({
-        origin: 'https://taskmanager-frontend-cb8p.onrender.com', // Replace with your frontend URL
+        //origin: 'https://taskmanager-frontend-cb8p.onrender.com',
+  
+        origin: allowedOrigin,
         credentials: true,
     })
 )
